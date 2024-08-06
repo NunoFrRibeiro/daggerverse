@@ -105,6 +105,7 @@ func (m *Flyio) Create(
 ) (string, error) {
 	return m.Container.
 		WithExec([]string{
+			"apps",
 			"create",
 			"--name",
 			appName,
