@@ -86,6 +86,7 @@ func (m *Flyio) Deploy(
 			m.Regions,
 			"--image",
 			image,
+			"--recreate-builder",
 		}
 	}
 	return m.Container.
