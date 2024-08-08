@@ -77,6 +77,7 @@ func (m *Flyio) Deploy(
 		"deploy",
 		"--regions",
 		m.Regions,
+		"--recreate-builder",
 	}
 
 	if image != "" {
