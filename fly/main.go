@@ -72,18 +72,11 @@ func (m *Flyio) Deploy(
 	// Deploy using a Docker image
 	// +optional
 	image string,
-
-	// Set to true if there's a need to recreate builders
-	// +optional
-	// +default="true"
-	recreateBuilder string,
 ) (string, error) {
 	deployCommand := []string{
 		"deploy",
 		"--regions",
 		m.Regions,
-		"--recreate-builder",
-		recreateBuilder,
 	}
 
 	if image != "" {
@@ -93,8 +86,6 @@ func (m *Flyio) Deploy(
 			m.Regions,
 			"--image",
 			image,
-			"--recreate-builder",
-			recreateBuilder,
 		}
 	}
 	return m.Container.
