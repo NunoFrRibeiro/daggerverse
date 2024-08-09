@@ -56,7 +56,7 @@ func New(
 		}
 		container = dag.Container().
 			From(fmt.Sprintf("flyio/flyctl:%s", version)).
-			WithSecretVariable("FLY_ACCESS_TOKEN", token)
+			WithSecretVariable("FLY_API_TOKEN", token)
 	}
 	return &Flyio{
 		Container: container,
@@ -94,7 +94,7 @@ func (m *Flyio) Deploy(
 	return m.Container.
 		WithMountedDirectory("/app", dir).
 		WithWorkdir("/app").
-		WithSecretVariable("FLY_ACCESS_TOKEN", m.Token).
+		WithSecretVariable("FLY_API_TOKEN", m.Token).
 		WithExec(deployCommand, dagger.ContainerWithExecOpts{
 			UseEntrypoint: true,
 		}).Stdout(ctx)
