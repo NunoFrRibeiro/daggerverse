@@ -79,6 +79,7 @@ func (m *Flyio) Deploy(
 	deployCommand := []string{
 		"sh",
 		"-c",
+		"flyctl",
 		"deploy",
 		"--regions",
 		m.Regions,
@@ -88,6 +89,7 @@ func (m *Flyio) Deploy(
 		deployCommand = []string{
 			"sh",
 			"-c",
+			"flyctl",
 			"deploy",
 			"--regions",
 			m.Regions,
@@ -100,7 +102,7 @@ func (m *Flyio) Deploy(
 		WithWorkdir("/app").
 		WithSecretVariable("FLY_API_TOKEN", m.Token).
 		WithExec(deployCommand, dagger.ContainerWithExecOpts{
-			UseEntrypoint: true,
+			UseEntrypoint: false,
 		}).Terminal().Stdout(ctx)
 }
 
