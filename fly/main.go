@@ -21,6 +21,8 @@ type Flyio struct {
 	Regions string
 	// +private
 	Org string
+	// +private
+	Token *dagger.Secret
 }
 
 func New(
@@ -61,6 +63,7 @@ func New(
 		Version:   version,
 		Regions:   regions,
 		Org:       org,
+		Token:     token,
 	}
 }
 
@@ -91,6 +94,7 @@ func (m *Flyio) Deploy(
 	return m.Container.
 		WithMountedDirectory("/app", dir).
 		WithWorkdir("/app").
+		WithSecretVariable("FLY_API_TOKEN", m.Token).
 		WithExec(deployCommand, dagger.ContainerWithExecOpts{
 			UseEntrypoint: true,
 		}).Stdout(ctx)
