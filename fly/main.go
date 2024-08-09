@@ -77,6 +77,8 @@ func (m *Flyio) Deploy(
 	image string,
 ) (string, error) {
 	deployCommand := []string{
+		"sh",
+		"-c",
 		"deploy",
 		"--regions",
 		m.Regions,
@@ -84,6 +86,8 @@ func (m *Flyio) Deploy(
 
 	if image != "" {
 		deployCommand = []string{
+			"sh",
+			"-c",
 			"deploy",
 			"--regions",
 			m.Regions,
@@ -97,7 +101,7 @@ func (m *Flyio) Deploy(
 		WithSecretVariable("FLY_API_TOKEN", m.Token).
 		WithExec(deployCommand, dagger.ContainerWithExecOpts{
 			UseEntrypoint: true,
-		}).Stdout(ctx)
+		}).Terminal().Stdout(ctx)
 }
 
 // Create a new application on the Fly platform
