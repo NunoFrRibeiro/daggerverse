@@ -77,8 +77,6 @@ func (m *Flyio) Deploy(
 	image string,
 ) (string, error) {
 	deployCommand := []string{
-		"sh",
-		"-c",
 		"flyctl",
 		"deploy",
 		"--regions",
@@ -87,8 +85,6 @@ func (m *Flyio) Deploy(
 
 	if image != "" {
 		deployCommand = []string{
-			"sh",
-			"-c",
 			"flyctl",
 			"deploy",
 			"--regions",
