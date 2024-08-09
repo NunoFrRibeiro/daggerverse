@@ -60,7 +60,7 @@ func (m *Infisical) GetSecret(
 	secretPath string,
 
 	// The type of the secret. Valid options are “shared” or “personal”. If not specified, the default value is “shared”
-	// optinonal
+	// +optional
 	secretType string,
 ) (*dagger.Secret, error) {
 
