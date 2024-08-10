@@ -98,5 +98,5 @@ func (m *Infisical) GetSecret(
 		return nil, err
 	}
 
-	return dag.SetSecret("val", fmt.Sprintf("%s", secret)), nil
+	return dag.SetSecret("val", secret.SecretValue), nil
 }
