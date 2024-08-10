@@ -5,6 +5,7 @@ package main
 import (
 	"context"
 	"dagger/infisical/internal/dagger"
+	"strings"
 
 	infisical "github.com/infisical/go-sdk"
 )
@@ -97,5 +98,7 @@ func (m *Infisical) GetSecret(
 		return nil, err
 	}
 
-	return dag.SetSecret("val", secret.SecretValue), nil
+	returnValue := strings.Split(secret.SecretValue, " ")
+
+	return dag.SetSecret("val", returnValue[1]), nil
 }
