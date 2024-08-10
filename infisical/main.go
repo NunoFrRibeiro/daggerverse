@@ -98,7 +98,7 @@ func (m *Infisical) GetSecret(
 		return nil, err
 	}
 
-	returnValue := strings.Split(secret.SecretValue, " ")
+	returnValue := secret.SecretValue
 
-	return dag.SetSecret("val", returnValue[1]), nil
+	return dag.SetSecret("val", returnValue), nil
 }
