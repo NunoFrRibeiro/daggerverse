@@ -5,7 +5,6 @@ package main
 import (
 	"context"
 	"dagger/infisical/internal/dagger"
-	"strings"
 
 	infisical "github.com/infisical/go-sdk"
 )
