@@ -99,5 +99,5 @@ func (m *Infisical) GetSecret(
 
 	returnValue := secret.SecretValue
 
-	return dag.SetSecret("val", returnValue), nil
+	return dag.SetSecret(secretKey, returnValue), nil
 }
