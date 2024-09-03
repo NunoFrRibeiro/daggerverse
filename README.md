@@ -15,6 +15,7 @@ If you don't have DevBox installed on your machine you can follow theese [instru
 ## modules
 
 | Modules | Description |
+| ----- | ------- |
 | [fly](./fly/) | Deploy you app to [Fly](https://fly.io/) |
 | [infisical](./infisical/) | Fetch your [infisical](https://infisical.com/) secrets |
 | [twitter](./twitter/) | Post/delete a post in your [twitter](https://x.com) |
