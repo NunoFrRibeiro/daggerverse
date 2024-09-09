@@ -3,9 +3,11 @@
 package main
 
 import (
-	"context"
-	"dagger/flyio/internal/dagger"
 	"fmt"
+
+	"golang.org/x/net/context"
+
+	"dagger/flyio/internal/dagger"
 )
 
 // If no version of fly is specified, it defaults to latest
@@ -47,7 +49,6 @@ func New(
 	// Use a custom container with Fly installed
 	// +optional
 	container *dagger.Container,
-
 ) *Flyio {
 	if container == nil {
 		if version == "" {
